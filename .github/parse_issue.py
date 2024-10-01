@@ -17,3 +17,15 @@ for section in sections:
   scenario[key] = value
 
 pprint.pprint(scenario)
+
+def open_template():
+    with open("templates/default.tex") as f:
+      return f.read()
+
+
+template = open_template()
+
+for key,value in scenario.items():
+  template = template.replace(f"<{key}>", value)
+
+print(template)
