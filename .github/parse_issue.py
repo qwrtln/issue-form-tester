@@ -13,8 +13,8 @@ print(sections)
 
 scenario = {}
 for section in sections:
-  key, value = section.strip().split("\n\n")
-  scenario[key] = value
+    key, value = section.strip().split("\n\n")
+    scenario[key] = value
 
 pprint.pprint(scenario)
 
@@ -29,3 +29,20 @@ for key,value in scenario.items():
   template = template.replace(f"<{key}>", value)
 
 print(template)
+
+def save_scenario(raw_scenario, scenario_content):
+    directory = None
+    match raw_scenario["Scenario type"]:
+      case "Coop":
+        directory = "coops"
+      case "Clash":
+        directory = "clash"
+      case "Campaign":
+        directory = "campaigns"
+    file_name = raw_scenario["Scenario Title"].lower().replace(" ", "_")
+    with open(f"{directory}/{file_name}.tex", "w+") as f:
+        f.write(scenario_content)
+    with open(f"{directory}/main.tex", "a") as f:
+        f.writelines(["", "\\clearpage", f"\\input{{\\{directory}path/{file_name}.tex}}"])
+
+save_scenario(scenario, template)
