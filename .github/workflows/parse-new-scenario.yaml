@@ -9,18 +9,19 @@ jobs:
     name: Parsing new scenario
     runs-on: ubuntu-latest
     steps:
-      - name: Print issue title
-        run: echo "Hello form ${{ github.event.issue.title }}"
-
-      - name: Save issue body
-        run: echo "${{ github.event.issue.body }}" >> issue_body.txt
-
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
           python-version: 3.12
 
+      - name: Print issue title
+        run: echo "Hello form ${{ github.event.issue.title }}"
+
+      - name: Save issue body
+        run: echo "${{ github.event.issue.body }}" >> issue_body.txt
+
       - name: Parse issue
         run: |
+          ls
           python .github/parse_issue.py issue_body.txt
