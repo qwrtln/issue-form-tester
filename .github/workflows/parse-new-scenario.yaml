@@ -3,6 +3,13 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  contents: write
+  issues: read
+  pull-requests: write
+  id-token: write
+  statuses: write
+
 jobs:
   parse-new-scenario:
     if: ${{ startsWith(github.event.issue.title, 'New Scenario:') }}
