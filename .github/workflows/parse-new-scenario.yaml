@@ -35,7 +35,7 @@ jobs:
           git commit -m "${{ github.event.issue.title }}"
           DATE=$(date +%s)
           git checkout -b new-scenario-$DATE
-          gh pr create --title "${{ github.event.issue.title }}"
+          gh pr create --title "${{ github.event.issue.title }}" --body "${{ github.event.issue.body }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
