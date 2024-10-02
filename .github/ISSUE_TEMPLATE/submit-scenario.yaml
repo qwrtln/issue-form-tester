@@ -17,7 +17,6 @@ body:
         - Coop
         - Clash
         - Campaign
-        - Alliance
       default: 0
     validations:
       required: true
@@ -52,23 +51,23 @@ body:
       placeholder: There is a world beyond ours, filled with beasts and monsters...
     validations:
       required: true
-  # - type: dropdown
-  #   id: length
-  #   attributes:
-  #     label: Scenario Length
-  #     description: How many rounds is this scenario played over?
-  #     options: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-  #     default: 8
-  #   validations:
-  #     required: true
-  # - type: input
-  #   id: player-count
-  #   attributes:
-  #     label: Player Count
-  #     description: Please specify the number of players.
-  #     placeholder: ex. 2-6, 2-3, 2 or 4
-  #   validations:
-  #     required: true
+  - type: dropdown
+    id: length
+    attributes:
+      label: Scenario Length
+      description: How many rounds is this scenario played over?
+      options: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+      default: 8
+    validations:
+      required: true
+  - type: input
+    id: player-count
+    attributes:
+      label: Player Count
+      description: Please specify the number of players.
+      placeholder: ex. 2-6, 2-3, 2 or 4
+    validations:
+      required: true
   # - type: dropdown
   #   id: starting-gold
   #   attributes:
