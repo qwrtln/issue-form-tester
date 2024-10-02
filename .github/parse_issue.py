@@ -40,9 +40,9 @@ def save_scenario(raw_scenario, scenario_content):
       case "Campaign":
         directory = "campaigns"
     file_name = raw_scenario["Scenario Title"].lower().replace(" ", "_")
-    with open(f"{directory}/{file_name}.tex", "w+") as f:
+    with open(f"draft-scenarios/{directory}/{file_name}.tex", "w+") as f:
         f.write(scenario_content)
-    with open(f"{directory}/main.tex", "a") as f:
-        f.writelines(["", "\\clearpage", f"\\input{{\\{directory}path/{file_name}.tex}}"])
+    with open(f"draft-scenarios/{directory}/main.tex", "a") as f:
+        f.writelines(["\n\\clearpage", f"\n\\input{{\\{directory}path/{file_name}.tex}}"])
 
 save_scenario(scenario, template)
