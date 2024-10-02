@@ -83,7 +83,7 @@ body:
       label: Starting Building Materials
       description: How much bulding materials do the players start with?
       options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      default: 4
+      default: 3
     validations:
       required: true
   - type: dropdown
@@ -92,14 +92,14 @@ body:
       label: Starting Valuables
       description: How much valuables do the players start with?
       options: [0, 1, 2, 3, 4, 5]
-      default: 2
+      default: 1
     validations:
       required: true
   - type: checkboxes
     id: town-buildings
     attributes:
-      label: Which buildings do the players start with?
-      description: You may select more than one.
+      label: Town Buildings
+      description: Which buildings do the players start with?
       options:
         - label: Bronze Dwelling
         - label: Silver Dwelling
