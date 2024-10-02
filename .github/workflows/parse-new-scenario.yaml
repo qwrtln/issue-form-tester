@@ -26,7 +26,9 @@ jobs:
         run: echo "Hello form ${{ github.event.issue.title }}"
 
       - name: Save issue body
-        run: echo "${{ github.event.issue.body }}" >> issue_body.txt
+        run: |
+          echo "${{ github.event.issue.body }}" >> issue_body.txt
+          echo "${{ github.event.issue.labels }}"
 
       - name: Parse issue
         run: |
