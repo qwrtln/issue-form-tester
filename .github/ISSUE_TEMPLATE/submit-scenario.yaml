@@ -57,7 +57,7 @@ body:
       label: Scenario Length
       description: How many rounds is this scenario played over?
       options: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-      default: 8
+      default: 6
     validations:
       required: true
   - type: input
@@ -68,22 +68,22 @@ body:
       placeholder: ex. 2-6, 2-3, 2 or 4
     validations:
       required: true
-  # - type: dropdown
-  #   id: starting-gold
-  #   attributes:
-  #     label: Starting Gold
-  #     description: How much gold do the players start with?
-  #     options: [0, 5, 10, 15, 20, 25, 30, 35, 40]
-  #     default: 10
-  #   validations:
-  #     required: true
+  - type: dropdown
+    id: starting-gold
+    attributes:
+      label: Starting Gold
+      description: How much gold do the players start with?
+      options: [0, 5, 10, 15, 20, 25, 30, 35, 40]
+      default: 2
+    validations:
+      required: true
   # - type: dropdown
   #   id: starting-bulding-materials
   #   attributes:
   #     label: Starting Building Materials
   #     description: How much bulding materials do the players start with?
   #     options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  #     default: 3
+  #     default: 4
   #   validations:
   #     required: true
   # - type: dropdown
@@ -92,6 +92,6 @@ body:
   #     label: Starting Valuables
   #     description: How much valuables do the players start with?
   #     options: [0, 1, 2, 3, 4, 5]
-  #     default: 1
+  #     default: 2
   #   validations:
   #     required: true

@@ -43,6 +43,6 @@ def save_scenario(raw_scenario, scenario_content):
     with open(f"draft-scenarios/{directory}/{file_name}.tex", "w+") as f:
         f.write(scenario_content)
     with open(f"draft-scenarios/{directory}/main.tex", "a") as f:
-        f.writelines(["\n\\clearpage", f"\n\n\\input{{\\{directory}path/{file_name}.tex}}"])
+        f.writelines(["\n\\clearpage", f"\n\n\\input{{{directory}/{file_name}.tex}}"])
 
 save_scenario(scenario, template)
