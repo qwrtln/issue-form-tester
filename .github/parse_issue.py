@@ -14,6 +14,9 @@ print(sections)
 scenario = {}
 for section in sections:
     key, value = section.strip().split("\n\n")
+    if key == "Town Buildings":
+        buildings = ", ".join([v[6:].strip() for v in value if v.startswith("- [X]")])
+        buildings.replace("Bronze", "\\svgunit{bronze}").replace("Silver", "\\svgunit{silver}").replace("Gold", "\\svgunit{gold})")
     scenario[key] = value
 
 pprint.pprint(scenario)
@@ -26,19 +29,19 @@ def open_template():
 template = open_template()
 
 for key,value in scenario.items():
-  template = template.replace(f"<{key}>", value)
+    template = template.replace(f"<{key}>", value)
 
 print(template)
 
 def save_scenario(raw_scenario, scenario_content):
     directory = None
     match raw_scenario["Scenario type"]:
-      case "Coop":
-        directory = "coops"
-      case "Clash":
-        directory = "clash"
-      case "Campaign":
-        directory = "campaigns"
+        case "Coop":
+            directory = "coops"
+        case "Clash":
+            directory = "clash"
+        case "Campaign":
+            directory = "campaigns"
     file_name = raw_scenario["Scenario Title"].lower().replace(" ", "_")
     with open(f"draft-scenarios/{directory}/{file_name}.tex", "w+") as f:
         f.write(scenario_content)
