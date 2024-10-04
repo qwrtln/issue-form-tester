@@ -126,12 +126,25 @@ body:
     id: town-buildings
     attributes:
       label: Town Buildings
-      description: Which buildings do the players start with?
+      description: Which Buildings do the players start with?
       options:
         - label: Bronze Dwelling
         - label: Silver Dwelling
         - label: Gold Dwelling
         - label: City Hall
         - label: Citadel
+  - type: checkboxes
+    id: starting-units
+    attributes:
+      label: Starting Units
+      description: Which Units do the players start with?
+      options:
+        - label: A Few Bronze Units with the lowest Recruitment cost
+        - label: A Pack Bronze Units with the highest Recruitment cost
+        - label: A Few of each Bronze Units
+        - label: A Few Silver Units with the lowest Recruitment cost
+        - label: A Pack Silver Units with the highest Recruitment cost
+        - label: A Few Golden Units with the lowest Recruitment cost
+        - label: A Pack Golden Units with the highest Recruitment cost
     validations:
       required: true

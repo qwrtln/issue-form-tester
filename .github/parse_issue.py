@@ -11,14 +11,28 @@ print(issue_text)
 sections = [s.strip() for s in issue_text.split("###") if s]
 print(sections)
 
+
+def word_to_svg(value):
+    return value.replace("Bronze", "\\svgunit{bronze}").replace("Silver", "\\svgunit{silver}").replace("Gold", "\\svgunit{gold}")
+
+def parse_town_buildings(value):
+    buildings = ", ".join([v[6:].strip() for v in value.split("\n") if v.startswith("- [X]")])
+    return word_to_svg(buildings)
+
+def parse_units(value):
+    units = [u[6:].strip() for u in value.split("\n") if u.startswith("- [X]")]
+    latex_units = "\n  \\item".join(units)
+    return word_to_svg(latex_units) + "\n"
+
 scenario = {}
 for section in sections:
     key, value = section.strip().split("\n\n")
     if key == "Town Buildings":
-        buildings = ", ".join([v[6:].strip() for v in value.split("\n") if v.startswith("- [X]")])
-        buildings.replace("Bronze", "\\svgunit{bronze}").replace("Silver", "\\svgunit{silver}").replace("Gold", "\\svgunit{gold}")
-        value = buildings
+        value = parse_town_buildings(value)
+    elif key == "Starting Units":
+        value = parse_units(value)
     scenario[key] = value
+
 
 pprint.pprint(scenario)
 
