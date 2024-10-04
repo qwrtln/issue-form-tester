@@ -6,8 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        ## Don't remove the `New Scenario:` prefix from the title!
         Thank you for submitting your scenario! Please fill in the form below.
-        Please don't remove the `New Scenario:` prefix from the title!
   - type: dropdown
     id: type
     attributes:
