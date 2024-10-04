@@ -21,8 +21,8 @@ def parse_town_buildings(value):
 
 def parse_units(value):
     units = [u[6:].strip() for u in value.split("\n") if u.startswith("- [X]")]
-    latex_units = "\n  \\item".join(units)
-    return word_to_svg(latex_units) + "\n"
+    latex_units = "\n  \\item ".join(units)
+    return "\n  \\item " + word_to_svg(latex_units)
 
 scenario = {}
 for section in sections:
