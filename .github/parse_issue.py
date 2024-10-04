@@ -15,8 +15,8 @@ scenario = {}
 for section in sections:
     key, value = section.strip().split("\n\n")
     if key == "Town Buildings":
-        buildings = ", ".join([v[6:].strip() for v in value if v.startswith("- [X]")])
-        buildings.replace("Bronze", "\\svgunit{bronze}").replace("Silver", "\\svgunit{silver}").replace("Gold", "\\svgunit{gold})")
+        buildings = ", ".join([v[6:].strip() for v in value.split("\n") if v.startswith("- [X]")])
+        buildings.replace("Bronze", "\\svgunit{bronze}").replace("Silver", "\\svgunit{silver}").replace("Gold", "\\svgunit{gold}")
         value = buildings
     scenario[key] = value
 

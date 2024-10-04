@@ -95,6 +95,33 @@ body:
       default: 1
     validations:
       required: true
+  - type: dropdown
+    id: income-gold
+    attributes:
+      label: Starting Gold Income
+      description: How much gold income do the players start with?
+      options: [10, 15, 20, 25, 30]
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: income-bulding-materials
+    attributes:
+      label: Starting Building Materials Income
+      description: How much bulding materials income do the players start with?
+      options: [0, 2, 4, 6, 8, 10]
+      default: 1
+    validations:
+      required: true
+  - type: dropdown
+    id: income-valuables
+    attributes:
+      label: Starting Valuables Income
+      description: How much valuables income do the players start with?
+      options: [0, 1, 2, 3, 4, 5]
+      default: 0
+    validations:
+      required: true
   - type: checkboxes
     id: town-buildings
     attributes:
