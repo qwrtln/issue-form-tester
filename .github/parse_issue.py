@@ -26,7 +26,6 @@ def parse_units(value):
     latex_units = "\n  \\item ".join(units)
     return "\n  \\item " + tier_to_svg(latex_units)
 
-
 def parse_bonus(value):
     if value == "_No response_":
         return "None"
@@ -39,11 +38,19 @@ def parse_bonus(value):
     output += "\\end{itemize}"
     return output
 
+def parse_additional_rules(value):
+    rules = value.split("\n")
+    output = "\\begin{itemize}\n"
+    for rule in rules:
+        output += f"  \\item {rule.strip()}\n"
+    output += "\\end{itemize}"
+    return output
+
 def parse_timed_events(timed_events):
     output = ""
     for key, value in timed_events:
         round = key.split()[1]
-        output += f"\\textbf{{\\nth{round} Round:}}\n"
+        output += f"\\textbf{{\\nth{{{round}}} Round:}}\n"
         output += "\\begin{itemize}\n"
         output += f"  \\item {value}\n"
         output += "\\end{itemize}\n"
@@ -63,11 +70,12 @@ for section in sections:
         if value != "_No response_":
             timed_events.append((key, value))
         continue
+    elif key == "Additional Rules":
+        value = parse_additional_rules(value)
     scenario[key] = value
 
 print("Timed events:")
 pprint.pprint(timed_events)
-
 
 scenario["Timed Events"] = parse_timed_events(timed_events)
 print("Parsed scenario:")

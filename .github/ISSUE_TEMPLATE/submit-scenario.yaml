@@ -259,3 +259,13 @@ body:
         Every player flips one Gold Unit from Pack to Few side.
     validations:
       required: false
+  - type: textarea
+    id: additional-rules
+    attributes:
+      label: Additional Rules
+      description: List all the Additional Rules, *one per line*.
+      placeholder: |
+        When a player Visits an Obelisk, they roll 2 Treasure Dice and choose one to resolve.
+        You can't build a Gold Dwelling.
+    validations:
+      required: true
