@@ -12,17 +12,30 @@ sections = [s.strip() for s in issue_text.split("###") if s]
 print(sections)
 
 
-def word_to_svg(value):
+def tier_to_svg(value):
     return value.replace("Bronze", "\\svgunit{bronze}").replace("Silver", "\\svgunit{silver}").replace("Gold", "\\svgunit{gold}")
 
 def parse_town_buildings(value):
     buildings = ", ".join([v[6:].strip() for v in value.split("\n") if v.startswith("- [X]")])
-    return word_to_svg(buildings)
+    return tier_to_svg(buildings)
 
 def parse_units(value):
     units = [u[6:].strip() for u in value.split("\n") if u.startswith("- [X]")]
     latex_units = "\n  \\item ".join(units)
-    return "\n  \\item " + word_to_svg(latex_units)
+    return "\n  \\item " + tier_to_svg(latex_units)
+
+
+def parse_bonus(value):
+    if not value:
+        return "None"
+    lines = value.split("\n")
+    if len(lines) == 1:
+        return lines[0].strip()
+    output = "\n\\begin{itemize}\n"
+    for line in lines:
+        output += f"\\item {line.strip()}\n"
+    output += "\\end{itemize}"
+    return output
 
 scenario = {}
 for section in sections:
@@ -31,7 +44,10 @@ for section in sections:
         value = parse_town_buildings(value)
     elif key == "Starting Units":
         value = parse_units(value)
-    scenario[key] = value
+    elif key == "Additional Bonus":
+        value = parse_bonus(value)
+    else:
+        scenario[key] = value
 
 
 pprint.pprint(scenario)

@@ -133,6 +133,7 @@ body:
         - label: Gold Dwelling
         - label: City Hall
         - label: Citadel
+        - label: Mage Guild
   - type: checkboxes
     id: starting-units
     attributes:
@@ -144,7 +145,15 @@ body:
         - label: A Few of each Bronze Units
         - label: A Few Silver Units with the lowest Recruitment cost
         - label: A Pack Silver Units with the highest Recruitment cost
-        - label: A Few Golden Units with the lowest Recruitment cost
-        - label: A Pack Golden Units with the highest Recruitment cost
+        - label: A Few Gold Units with the lowest Recruitment cost
+        - label: A Pack Gold Units with the highest Recruitment cost
     validations:
       required: true
+  - type: textarea
+    id: bonus
+    attributes:
+      label: Additional Bonus
+      description: Additional bonus the players start with. Please write one bonus per line.
+      placeholder: Search (2) the Artifact Deck\nSearch(4) the Spell Deck
+    validations:
+      required: false

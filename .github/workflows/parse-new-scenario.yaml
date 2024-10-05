@@ -22,13 +22,9 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Print issue title
-        run: echo "Hello form ${{ github.event.issue.title }}"
-
       - name: Save issue body
         run: |
           echo "${{ github.event.issue.body }}" >> issue_body.txt
-          echo "${{ github.event.issue.labels[0] }}"
 
       - name: Parse issue
         run: |
