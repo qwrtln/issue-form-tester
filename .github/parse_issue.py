@@ -40,6 +40,7 @@ def parse_bonus(value):
     return output
 
 scenario = {}
+timed_events = []
 for section in sections:
     key, value = section.strip().split("\n\n")
     if key == "Town Buildings":
@@ -48,7 +49,14 @@ for section in sections:
         value = parse_units(value)
     elif key == "Additional Bonus":
         value = parse_bonus(value)
+    elif key.endswith("Timed Events"):
+        if value != "_No response_":
+            timed_events.append((key, value))
+        continue
     scenario[key] = value
+
+print("Timed events:")
+pprint.pprint(timed_events)
 
 
 print("Parsed scenario:")

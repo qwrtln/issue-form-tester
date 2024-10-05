@@ -178,3 +178,84 @@ body:
         One of your Towns is captured, or a Main Hero is defeated in a battle (retreat doesn't count).
     validations:
       required: true
+  - type: input
+    id: timed-4
+    attributes:
+      label: Round 4 Timed Events
+      description: What happens in Round 4?
+      placeholder: |
+        Remove all Black Cubes from all the Water Wheels, Windmills and Mystical Gardens on the map.
+    validations:
+      required: false
+  - type: input
+    id: timed-5
+    attributes:
+      label: Round 5 Timed Events
+      description: What happens in Round 5?
+      placeholder: |
+        Gain again the result of one Field with a Black Cube.
+    validations:
+      required: false
+  - type: input
+    id: timed-6
+    attributes:
+      label: Round 6 Timed Events
+      description: What happens in Round 6?
+      placeholder: |
+        All Heroes gain +1 MP.
+    validations:
+      required: false
+  - type: input
+    id: timed-7
+    attributes:
+      label: Round 7 Timed Events
+      description: What happens in Round 7?
+      placeholder: |
+        Repeat the Timed Event of Round 4.
+    validations:
+      required: false
+  - type: input
+    id: timed-8
+    attributes:
+      label: Round 8 Timed Events
+      description: What happens in Round 8?
+      placeholder: |
+        Repeat the Timed Event of Round 5.
+    validations:
+      required: false
+  - type: input
+    id: timed-9
+    attributes:
+      label: Round 9 Timed Events
+      description: What happens in Round 9?
+      placeholder: |
+        Repeat the Timed Event of Round 6.
+    validations:
+      required: false
+  - type: input
+    id: timed-10
+    attributes:
+      label: Round 10 Timed Events
+      description: What happens in Round 10?
+      placeholder: |
+        Repeat the Timed Events of Rounds 4 and 5.
+    validations:
+      required: false
+  - type: input
+    id: timed-11
+    attributes:
+      label: Round 11 Timed Events
+      description: What happens in Round 11?
+      placeholder: |
+        Repeat the Timed Events of Rounds 6 and 7.
+    validations:
+      required: false
+  - type: input
+    id: timed-12
+    attributes:
+      label: Round 12 Timed Events
+      description: What happens in Round 12?
+      placeholder: |
+        Every player flips one Gold Unit from Pack to Few side.
+    validations:
+      required: false
