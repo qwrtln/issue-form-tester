@@ -159,3 +159,22 @@ body:
         Search (4) the Spell Deck
     validations:
       required: false
+  - type: textarea
+    id: victory
+    attributes:
+      label: Victory Conditions
+      description: What should happen for the players to win the Scenario?
+      placeholder: |
+        To win the Scenario, a Hero must obtain the Grail Token and bring it to their Faction Town.
+        To win the Scenario, a Hero must Flag the Dragon Utopia Field.
+    validations:
+      required: true
+  - type: textarea
+    id: defeat
+    attributes:
+      label: Defeat Conditions
+      description: Under what circumstances do the players lose the Scenario?
+      placeholder: |
+        One of your Towns is captured, or a Main Hero is defeated in a battle (retreat doesn't count).
+    validations:
+      required: true
