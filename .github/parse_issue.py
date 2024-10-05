@@ -6,10 +6,12 @@ import pprint
 issue_file = sys.argv[1]
 issue_text = pathlib.Path(issue_file).read_text()
 
+print("Raw issue text:")
 print(issue_text)
 
 sections = [s.strip() for s in issue_text.split("###") if s]
-print(sections)
+print("Raw issue sections:")
+pprint.pprint(sections)
 
 
 def tier_to_svg(value):
@@ -50,6 +52,7 @@ for section in sections:
         scenario[key] = value
 
 
+print("Parsed scenario:")
 pprint.pprint(scenario)
 
 def open_template():
@@ -62,6 +65,7 @@ template = open_template()
 for key,value in scenario.items():
     template = template.replace(f"<{key}>", value)
 
+print("Rendered template:")
 print(template)
 
 def save_scenario(raw_scenario, scenario_content):

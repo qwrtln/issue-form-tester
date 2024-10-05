@@ -156,6 +156,6 @@ body:
       description: Additional bonus the players start with. Please write one bonus per line.
       placeholder: |
         Search (2) the Artifact Deck
-        Search(4) the Spell Deck
+        Search (4) the Spell Deck
     validations:
       required: false
