@@ -14,6 +14,11 @@ print("Raw issue sections:")
 pprint.pprint(sections)
 
 
+def parse_author(value):
+    if value == "_No response_":
+        return "Unknown"
+    return value
+
 def tier_to_svg(value):
     return value.replace("Bronze", "\\svgunit{bronze}").replace("Silver", "\\svgunit{silver}").replace("Gold", "\\svgunit{gold}")
 
@@ -28,7 +33,7 @@ def parse_units(value):
 
 
 def parse_bonus(value):
-    if not value:
+    if value == "_No response_":
         return "None"
     lines = value.split("\n")
     if len(lines) == 1:
@@ -42,14 +47,15 @@ def parse_bonus(value):
 scenario = {}
 for section in sections:
     key, value = section.strip().split("\n\n")
-    if key == "Town Buildings":
+    if key == "Author":
+        value = parse_author(value)
+    elif key == "Town Buildings":
         value = parse_town_buildings(value)
     elif key == "Starting Units":
         value = parse_units(value)
     elif key == "Additional Bonus":
         value = parse_bonus(value)
-    else:
-        scenario[key] = value
+    scenario[key] = value
 
 
 print("Parsed scenario:")
