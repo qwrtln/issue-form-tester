@@ -39,6 +39,16 @@ def parse_bonus(value):
     output += "\\end{itemize}"
     return output
 
+def parse_timed_events(timed_events):
+    output = ""
+    for key, value in timed_events:
+        round = key.split()[1]
+        output += f"\\textbf{{\\nth{round} Round:}}\n"
+        output += "\\begin{itemize}\n"
+        output += f"  \\item {value}\n"
+        output += "\\end{itemize}\n"
+    return output
+
 scenario = {}
 timed_events = []
 for section in sections:
@@ -59,6 +69,7 @@ print("Timed events:")
 pprint.pprint(timed_events)
 
 
+scenario["Timed Events"] = parse_timed_events(timed_events)
 print("Parsed scenario:")
 pprint.pprint(scenario)
 
