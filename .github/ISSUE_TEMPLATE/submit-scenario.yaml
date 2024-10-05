@@ -154,7 +154,7 @@ body:
     attributes:
       label: Additional Bonus
       description: Additional bonus the players start with. Please write one bonus per line.
-      placeholder: >
+      placeholder: |
         Search (2) the Artifact Deck
         Search(4) the Spell Deck
     validations:
